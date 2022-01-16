@@ -1,0 +1,35 @@
+.App {
+  text-align: center;
+}
+
+.footer {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgb(235, 195, 64);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.header-fixed-top {
+  position: sticky;
+  background: white;
+  padding: 1rem;
+  background-color: rgb(235, 195, 64);
+  margin-bottom: 1rem;
+  top: 0;
+  left: 0;
+
+}
+
+.box{
+  display: flex;
+  justify-content: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
