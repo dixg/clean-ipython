@@ -9,10 +9,11 @@ function App() {
     var coList = result.split("\n");
 
     for (let i = 0; i < coList.length; i++) {
-      coList[i] = coList[i].replace(/   *...: |   *...:|In.*]: | .*]: /gi, "");
+      coList[i] = coList[i].replace(/   *...: |   *...:|In.*]: *| .*]: /gs, "");
     }
 
     let processed_text = coList.join("\n");
+    console.log("coList",coList)
     event.preventDefault();
     setResult(processed_text);
   };
