@@ -19,18 +19,26 @@ function App() {
       if (curr_ele.length >0){
         var spacesAtStart=curr_ele.length - curr_ele.trimStart().length;
         numSpace_list.push(spacesAtStart)
-        console.log("len1 length of this element   =", spacesAtStart,curr_ele)
+        console.log("No. of spaces from start   =", spacesAtStart,curr_ele)
         
       }
     }
-    console.log("Min spaces =",numSpace_list, Math.min.apply(Math, numSpace_list))
+    let minSpace=Math.min.apply(Math, numSpace_list)
+    console.log("Min spaces =",numSpace_list, minSpace)
     
-    for (let i = 0; i < coList.length; i++) {
-      var curr_ele=coList[i]
-      coList[i]=coList[i].slice(8)
-      console.log(coList[i])
+    if (minSpace>0){
+      for (let i = 0; i < coList.length; i++) {
+        var curr_ele=coList[i]
+        coList[i]=coList[i].slice(8)
+        console.log(coList[i])
+      }
 
     }
+    // for (let i = 0; i < coList.length; i++) {
+    //   var curr_ele=coList[i]
+    //   coList[i]=coList[i].slice(8)
+    //   console.log(coList[i])
+    // }
 
     console.log("coList",coList)
     let processed_text = coList.join("\n");
