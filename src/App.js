@@ -7,13 +7,33 @@ function App() {
   const handleSubmit = (event) => {
     console.log("onSubmit");
     var coList = result.split("\n");
+    var spacesAtStart=0
+    
+    const numSpace_list=[]
 
     for (let i = 0; i < coList.length; i++) {
       coList[i] = coList[i].replace(/   *...: |   *...:|In.*]: *| .*]: /gs, "");
+      
+      var curr_ele=coList[i]
+
+      if (curr_ele.length >0){
+        var spacesAtStart=curr_ele.length - curr_ele.trimStart().length;
+        numSpace_list.push(spacesAtStart)
+        console.log("len1 length of this element   =", spacesAtStart,curr_ele)
+        
+      }
+    }
+    console.log("Min spaces =",numSpace_list, Math.min.apply(Math, numSpace_list))
+    
+    for (let i = 0; i < coList.length; i++) {
+      var curr_ele=coList[i]
+      coList[i]=coList[i].slice(8)
+      console.log(coList[i])
+
     }
 
-    let processed_text = coList.join("\n");
     console.log("coList",coList)
+    let processed_text = coList.join("\n");
     event.preventDefault();
     setResult(processed_text);
   };
