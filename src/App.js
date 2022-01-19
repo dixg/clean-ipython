@@ -14,11 +14,10 @@ function App() {
 
     for (let i = 0; i < coList.length; i++) {
       coList[i] = coList[i].replace(/   *...: |   *...:|In.*]: *| .*]: /gs, "");
-
       var curr_ele = coList[i];
 
       if (curr_ele.length > 0) {
-        var spacesAtStart = curr_ele.length - curr_ele.trimStart().length;
+        spacesAtStart = curr_ele.length - curr_ele.trimStart().length;
         numSpace_list.push(spacesAtStart);
         // console.log("No. of spaces from start   =", spacesAtStart, curr_ele);
       }
@@ -28,7 +27,7 @@ function App() {
 
     if (minSpace > 0) {
       for (let i = 0; i < coList.length; i++) {
-        var curr_ele = coList[i];
+        curr_ele = coList[i];
         coList[i] = coList[i].slice(8);
         console.log(coList[i]);
       }
