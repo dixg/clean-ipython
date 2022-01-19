@@ -1,5 +1,9 @@
 import "./App.css";
 import React, { useState } from "react";
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+// import Button from '@mui/material/Button';
+
 
 function App() {
   let [result, setResult] = useState("");
@@ -7,32 +11,30 @@ function App() {
   const handleSubmit = (event) => {
     console.log("onSubmit");
     var coList = result.split("\n");
-    var spacesAtStart=0
-    
-    const numSpace_list=[]
+    var spacesAtStart = 0;
+
+    const numSpace_list = [];
 
     for (let i = 0; i < coList.length; i++) {
       coList[i] = coList[i].replace(/   *...: |   *...:|In.*]: *| .*]: /gs, "");
-      
-      var curr_ele=coList[i]
 
-      if (curr_ele.length >0){
-        var spacesAtStart=curr_ele.length - curr_ele.trimStart().length;
-        numSpace_list.push(spacesAtStart)
-        console.log("No. of spaces from start   =", spacesAtStart,curr_ele)
-        
+      var curr_ele = coList[i];
+
+      if (curr_ele.length > 0) {
+        var spacesAtStart = curr_ele.length - curr_ele.trimStart().length;
+        numSpace_list.push(spacesAtStart);
+        console.log("No. of spaces from start   =", spacesAtStart, curr_ele);
       }
     }
-    let minSpace=Math.min.apply(Math, numSpace_list)
-    console.log("Min spaces =",numSpace_list, minSpace)
-    
-    if (minSpace>0){
-      for (let i = 0; i < coList.length; i++) {
-        var curr_ele=coList[i]
-        coList[i]=coList[i].slice(8)
-        console.log(coList[i])
-      }
+    let minSpace = Math.min.apply(Math, numSpace_list);
+    console.log("Min spaces =", numSpace_list, minSpace);
 
+    if (minSpace > 0) {
+      for (let i = 0; i < coList.length; i++) {
+        var curr_ele = coList[i];
+        coList[i] = coList[i].slice(8);
+        console.log(coList[i]);
+      }
     }
     // for (let i = 0; i < coList.length; i++) {
     //   var curr_ele=coList[i]
@@ -40,7 +42,7 @@ function App() {
     //   console.log(coList[i])
     // }
 
-    console.log("coList",coList)
+    console.log("coList", coList);
     let processed_text = coList.join("\n");
     event.preventDefault();
     setResult(processed_text);
@@ -65,22 +67,24 @@ function App() {
   );
   return (
     <div className="App">
-      <div className="header-fixed-top cbp-af-header">
+      <div className="header">
         <h3>Clean-ipython</h3>
       </div>
-
-      <div className="box">
-        <Textarea
-          handleChange={onChangeHandler}
-          processed_text={result}
-          placeholder={"Paste your string here.."}
-        />
+      <div className="wrapper">
+        <div className="text-area-box">
+          <Textarea
+            handleChange={onChangeHandler}
+            processed_text={result}
+            placeholder={"Paste your string here.."}
+          />
+        </div>
+        {/* <Stack spacing={2} direction="row">
+        <Button variant="contained"onClick={handleSubmit}>Submit</Button>
+    </Stack> */}
+        <div className="submit-button">
+        <Button variant="contained"  size="large" onClick={handleSubmit}>Submit</Button>
+        </div>
       </div>
-
-      <div className="submit_button">
-        <button onClick={handleSubmit}>Submit</button>
-      </div>
-
       <div className="footer">
         <h3>
           Made with <Emoji label="Heart" symbol="❤️" /> by Dixika Grewal
