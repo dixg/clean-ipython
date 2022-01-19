@@ -1,9 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
 import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
-// import Button from '@mui/material/Button';
-
 
 function App() {
   let [result, setResult] = useState("");
@@ -23,7 +20,7 @@ function App() {
       if (curr_ele.length > 0) {
         var spacesAtStart = curr_ele.length - curr_ele.trimStart().length;
         numSpace_list.push(spacesAtStart);
-        console.log("No. of spaces from start   =", spacesAtStart, curr_ele);
+        // console.log("No. of spaces from start   =", spacesAtStart, curr_ele);
       }
     }
     let minSpace = Math.min.apply(Math, numSpace_list);
@@ -36,12 +33,6 @@ function App() {
         console.log(coList[i]);
       }
     }
-    // for (let i = 0; i < coList.length; i++) {
-    //   var curr_ele=coList[i]
-    //   coList[i]=coList[i].slice(8)
-    //   console.log(coList[i])
-    // }
-
     console.log("coList", coList);
     let processed_text = coList.join("\n");
     event.preventDefault();
@@ -78,9 +69,6 @@ function App() {
             placeholder={"Paste your string here.."}
           />
         </div>
-        {/* <Stack spacing={2} direction="row">
-        <Button variant="contained"onClick={handleSubmit}>Submit</Button>
-    </Stack> */}
         <div className="submit-button">
         <Button variant="contained"  size="large" onClick={handleSubmit}>Submit</Button>
         </div>
