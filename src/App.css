@@ -1,62 +1,61 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 .App {
+  /* As position: relative, its child elements can be set with absolute position based on it later. */
+  position: relative;
   text-align: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .header {
-  position: sticky;
-  background: white;
-  padding: 1rem;
+  /* padding: 1rem; */
   background-color: rgb(235, 195, 64);
-  margin-bottom: 1rem;
-  top: 0;
-  left: 0;
+  /* margin-bottom: 1rem;*/
+  padding: 10px;
 }
-.wrapper {
 
-  height: 72%;
-  width: auto;
-  /* margin-right: auto; */
-  /* margin-left: auto; */
-  /* max-width: 960px; */
-  /* padding-right: 10px; */
-  /* padding-left: 10px; */
+.wrapper {
+  padding: 10px;
+  padding-bottom: 60px; /* The padding-bottom is the height of the footer, ensuring exact enough space is left for the footer inside the container they are both in.
+  the wrapper div is used here that would contain all other page content. */
+
+  /* For arragnment of contents using flexbox */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 }
 
 #textarea {
+  overflow: auto;
   box-sizing: border-box;
   height: 500px;
-  /* border: 1px solid; */
   padding: 10px;
   border-radius: 41px;
   box-shadow: 0 12px 48px rgb(105 113 136 / 20%);
   background: #fff;
   border: 1px solid #e7e9f5;
   border-radius: 16px;
-  padding: 25px;
 }
-.submit-button{
+.submit-button {
   margin-top: 20px;
-  
 }
 
 .footer {
-  margin-top: 1rem;
-  padding: 1rem;
   background-color: rgb(235, 195, 64);
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  overflow: hidden;
+  height: 60px;   /* height mentioned in .wrapper */
   width: 100%;
+  bottom: 0;
+  position: absolute;
 }
 
-/* @media (prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-} */
+}
