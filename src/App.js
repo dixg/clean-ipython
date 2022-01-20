@@ -1,7 +1,12 @@
 import "./App.css";
 import React, { useState } from "react";
-import Button from '@mui/material/Button';
-import logo from './logo.png';
+import Button from "@mui/material/Button";
+import logo from "./logo.png";
+import { styled } from "@mui/material/styles";
+import ContentPasteIcon from "@mui/icons-material/ContentPaste";
+const StyledButton = styled(Button)`
+  margin: 10px;
+`;
 
 function App() {
   let [result, setResult] = useState("");
@@ -56,27 +61,52 @@ function App() {
       {props.symbol}
     </span>
   );
+  const handleCopyToClipboard = (event) => {
+    let sample_code = (
+      <code>In [1]: for run in range(0,10):</code>
+    );
+
+    navigator.clipboard.writeText(sample_code.props.children);
+  };
   return (
     <div className="App">
       <div className="header">
-       <img class="header-img" src={logo} alt="logo"/>
+        <img class="header-img" src={logo} alt="logo" />
       </div>
       <div className="wrapper">
         <div className="text-area-box">
           <Textarea
             handleChange={onChangeHandler}
             processed_text={result}
-            placeholder={"Remove leading whitespaces and special characters from any code in three simple steps: \n\n 1. Paste the code with leading whitespaces and ...: characters from ipython \n 2. Click the Submit button \n 3. Copy the generated clean code to desired destination \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ***Don't forget to save this link into your bookmarks and share it with your friends."}
+            placeholder={
+              "Remove leading whitespaces and special characters from any ipython code \n\nPaste your code here..."
+            }
           />
         </div>
         <div className="submit-button">
-        <Button variant="contained"  size="small" onClick={handleSubmit}>Submit</Button>
+          <StyledButton variant="contained" size="small" onClick={handleSubmit}>
+            Clean
+          </StyledButton>
+          {/* <StyledButton
+            startIcon={<ContentPasteIcon />}
+            onClick={handleCopyToClipboard}
+            variant="outlined"
+            size="small"
+          >
+            Copy sample
+          </StyledButton> */}
         </div>
       </div>
       <div className="footer">
         <p>
-          Made with <span> <Emoji label="Heart" symbol="❤️"/>&nbsp; by </span><a href="https://twitter.com/dixika_grewal">@dixika</a>
-          </p>
+          Made with{" "}
+          <span>
+            {" "}
+            <Emoji label="Heart" symbol="❤️" />
+            &nbsp; by{" "}
+          </span>
+          <a href="https://twitter.com/dixika_grewal">@dixika</a>
+        </p>
       </div>
     </div>
   );
