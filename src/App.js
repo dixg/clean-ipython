@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
 import Button from '@mui/material/Button';
+import logo from './logo.png';
 
 function App() {
   let [result, setResult] = useState("");
@@ -58,7 +59,7 @@ function App() {
   return (
     <div className="App">
       <div className="header">
-        <h3>Clean-ipython</h3>
+       <img class="header-img" src={logo} alt="logo"/>
       </div>
       <div className="wrapper">
         <div className="text-area-box">
@@ -69,13 +70,13 @@ function App() {
           />
         </div>
         <div className="submit-button">
-        <Button variant="contained"  size="large" onClick={handleSubmit}>Submit</Button>
+        <Button variant="contained"  size="small" onClick={handleSubmit}>Submit</Button>
         </div>
       </div>
       <div className="footer">
-        <h3>
-          Made with <Emoji label="Heart" symbol="❤️" /> by Dixika Grewal
-        </h3>
+        <p>
+          Made with <span> <Emoji label="Heart" symbol="❤️"/>&nbsp; by </span><a href="https://twitter.com/dixika_grewal">@dixika</a>
+          </p>
       </div>
     </div>
   );

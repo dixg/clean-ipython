@@ -13,10 +13,16 @@ body {
 
 .header {
   /* padding: 1rem; */
-  background-color: rgb(235, 195, 64);
-  /* margin-bottom: 1rem;*/
+  /* background-color: rgb(235, 195, 64); */
   padding: 10px;
+  text-align: left;
+  overflow:auto
 }
+.header-img {
+  float: left;
+  width: 15%;
+}
+
 
 .wrapper {
   padding: 10px;
@@ -46,12 +52,12 @@ body {
 }
 
 .footer {
-  background-color: rgb(235, 195, 64);
   overflow: hidden;
   height: 60px;   /* height mentioned in .wrapper */
   width: 100%;
   bottom: 0;
   position: absolute;
+  font-size: 10px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
