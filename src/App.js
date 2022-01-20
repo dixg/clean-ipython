@@ -66,7 +66,7 @@ function App() {
           <Textarea
             handleChange={onChangeHandler}
             processed_text={result}
-            placeholder={"Paste your string here.."}
+            placeholder={"Remove leading whitespaces and special characters from any code in three simple steps: \n\n 1. Paste the code with leading whitespaces and ...: characters from ipython \n 2. Click the Submit button \n 3. Copy the generated clean code to desired destination \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ***Don't forget to save this link into your bookmarks and share it with your friends."}
           />
         </div>
         <div className="submit-button">
