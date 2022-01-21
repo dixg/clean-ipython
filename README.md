@@ -1,1 +1,1 @@
-Clean-IPython is a developer tool used to remove leading whitespaces and special characters from code coiped from iPython. 
+Clean-IPython is a client-side developer tool used to remove leading whitespaces and special characters from code coiped from iPython. 
