@@ -23,7 +23,6 @@ body {
   width: 10%;
 }
 
-
 .wrapper {
   padding: 10px;
   padding-bottom: 60px; /* The padding-bottom is the height of the footer, ensuring exact enough space is left for the footer inside the container they are both in.
@@ -48,7 +47,7 @@ body {
   border-radius: 16px;
 }
 .submit-button {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .footer {

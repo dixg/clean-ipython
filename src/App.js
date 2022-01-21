@@ -61,13 +61,13 @@ function App() {
       {props.symbol}
     </span>
   );
-  const handleCopyToClipboard = (event) => {
-    let sample_code = (
-      <code>In [1]: for run in range(0,10):</code>
-    );
+  // const handleCopyToClipboard = (event) => {
+  //   let sample_code = (
+  //     <code>In [1]: for run in range(0,10):</code>
+  //   );
 
-    navigator.clipboard.writeText(sample_code.props.children);
-  };
+  //   navigator.clipboard.writeText(sample_code.props.children);
+  // };
   return (
     <div className="App">
       <div className="header">
@@ -79,7 +79,7 @@ function App() {
             handleChange={onChangeHandler}
             processed_text={result}
             placeholder={
-              "Remove leading whitespaces and special characters from any ipython code \n\nPaste your code here..."
+              "Remove leading whitespaces and special character(...:) from any ipython code. \n\nPaste your code here..."
             }
           />
         </div>
