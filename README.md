@@ -1,1 +1,1 @@
-Clean-IPython is a client-side developer to clean and format copied iPython code into executable python code.
+Clean-IPython is a client-side developer tool to clean and format copied iPython code into executable python code.

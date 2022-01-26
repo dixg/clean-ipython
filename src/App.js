@@ -79,7 +79,7 @@ function App() {
             handleChange={onChangeHandler}
             processed_text={result}
             placeholder={
-              "Remove leading whitespaces and special character(...:) from any ipython code. \n\nPaste your code here..."
+              "Clean and format copied iPython code into executable python code. \n\nPaste your code here..."
             }
           />
         </div>
