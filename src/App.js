@@ -13,22 +13,19 @@ function App() {
 
   const handleSubmit = (event) => {
     console.log("onSubmit");
-    var coList = result.split("\n");
-    var spacesAtStart = 0;
-
+    const coList = result.split("\n");
     const numSpace_list = [];
 
     for (let i = 0; i < coList.length; i++) {
       coList[i] = coList[i].replace(/   *...: |   *...:|In.*]: *| .*]: /gs, "");
-      var curr_ele = coList[i];
+      let curr_ele = coList[i];
 
       if (curr_ele.length > 0) {
         spacesAtStart = curr_ele.length - curr_ele.trimStart().length;
         numSpace_list.push(spacesAtStart);
-        // console.log("No. of spaces from start   =", spacesAtStart, curr_ele);
       }
     }
-    let minSpace = Math.min.apply(Math, numSpace_list);
+    const minSpace = Math.min.apply(Math, numSpace_list);
     console.log("Min spaces =", numSpace_list, minSpace);
 
     if (minSpace > 0) {
@@ -39,7 +36,7 @@ function App() {
       }
     }
     console.log("coList", coList);
-    let processed_text = coList.join("\n");
+    const processed_text = coList.join("\n");
     event.preventDefault();
     setResult(processed_text);
   };
@@ -47,9 +44,10 @@ function App() {
   const onChangeHandler = (event) => {
     event.target.style.border = "5px solid black";
 
-    var input_text = event.target.value;
+    const input_text = event.target.value;
     setResult(input_text);
   };
+
 
   const Emoji = (props) => (
     <span
@@ -111,17 +109,19 @@ function App() {
     </div>
   );
 }
-export function Textarea(props) {
-  console.log(props);
+
+// Memoize the Textarea component to optimize rendering
+const Textarea = React.memo(({ placeholder, handleChange, processed_text }) => {
+  console.log("Render Textarea");
   return (
     <textarea
       id="textarea"
-      placeholder={props.placeholder}
-      onChange={props.handleChange}
+      placeholder={placeholder}
+      onChange={handleChange}
       rows="50"
       cols="100"
-      value={props.processed_text}
+      value={processed_text}
     ></textarea>
   );
-}
+});
 export default App;
