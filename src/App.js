@@ -9,7 +9,7 @@ const StyledButton = styled(Button)`
 `;
 
 function App() {
-  let [result, setResult] = useState("");
+  const [result, setResult] = useState("");
 
   const handleSubmit = (event) => {
     console.log("onSubmit");
@@ -48,7 +48,6 @@ function App() {
     setResult(input_text);
   };
 
-
   const Emoji = (props) => (
     <span
       className="emoji"
@@ -59,13 +58,7 @@ function App() {
       {props.symbol}
     </span>
   );
-  // const handleCopyToClipboard = (event) => {
-  //   let sample_code = (
-  //     <code>In [1]: for run in range(0,10):</code>
-  //   );
-
-  //   navigator.clipboard.writeText(sample_code.props.children);
-  // };
+  
   return (
     <div className="App">
       <div className="header">
@@ -85,14 +78,6 @@ function App() {
           <StyledButton variant="contained" size="small" onClick={handleSubmit}>
             Clean
           </StyledButton>
-          {/* <StyledButton
-            startIcon={<ContentPasteIcon />}
-            onClick={handleCopyToClipboard}
-            variant="outlined"
-            size="small"
-          >
-            Copy sample
-          </StyledButton> */}
         </div>
       </div>
       <div className="footer">
