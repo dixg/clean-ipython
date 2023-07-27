@@ -15,6 +15,7 @@ function App() {
     console.log("onSubmit");
     const coList = result.split("\n");
     const numSpace_list = [];
+    let spacesAtStart = 0;
 
     for (let i = 0; i < coList.length; i++) {
       coList[i] = coList[i].replace(/   *...: |   *...:|In.*]: *| .*]: /gs, "");
@@ -30,7 +31,6 @@ function App() {
 
     if (minSpace > 0) {
       for (let i = 0; i < coList.length; i++) {
-        curr_ele = coList[i];
         coList[i] = coList[i].slice(8);
         console.log(coList[i]);
       }
